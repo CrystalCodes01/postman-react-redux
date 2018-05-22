@@ -13,7 +13,9 @@ renderPosts() {
   return _.map(this.props.posts, post =>  {
       return (
         <li className='list-group-item' key={post.id}>
-          {post.title}
+          <Link to={`/posts/${post.id}`}>
+            {post.title}
+          </Link>
         </li>
       );
   });
@@ -21,7 +23,7 @@ renderPosts() {
 
   render() {
     return (
-      <div>
+      <div className="pad-top-posts">
         <div className="text-xs-right">
           <Link className="btn btn-primary" to="/posts/new">
             Add a Post

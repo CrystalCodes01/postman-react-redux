@@ -28,8 +28,10 @@ class PostsNew extends Component {
   }
 
   onSubmit(values) {
-    this.props.createPost(values);
-  }
+    this.props.createPost(values, () => {
+    this.props.history.push('/')
+  });
+}
 
   render () {
     const { handleSubmit } = this.props;
@@ -46,7 +48,7 @@ class PostsNew extends Component {
           name="categories"
           component={this.renderField}
       />
-      <Field
+       <Field
         label="Post Content"
         name="content"
         component={this.renderField}
